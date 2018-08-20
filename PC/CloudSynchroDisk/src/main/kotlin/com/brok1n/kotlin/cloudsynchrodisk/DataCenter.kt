@@ -12,7 +12,7 @@ class DataCenter {
     var serverTcpPort = 22889
     var serverUdpLocalPort = 22890
     var serverTcpLocalPort = 22891
-    var heartBeatPeriodic:Long = 1000 * 10
+    var heartBeatPeriodic:Long = 1000 * 5
 
     val userId = PC_USER_ID.md516().base64().md516()
     val serverUserId = SERVER_USER_ID.md516().base64().md516()
