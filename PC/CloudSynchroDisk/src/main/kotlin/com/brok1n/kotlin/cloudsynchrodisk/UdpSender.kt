@@ -4,8 +4,6 @@ import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_DATA
 import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_HEARTBEAT
 import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_HEARTBEAT_BACK
 import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_REGISTER
-import com.brok1n.kotlin.cloudsynchrodisk.SendStatus.SEND_STATUS_TYPE_FAILED
-import com.brok1n.kotlin.cloudsynchrodisk.SendStatus.SEND_STATUS_TYPE_SUCCESS
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
@@ -173,7 +171,7 @@ class UdpSender {
 
     private fun receiveData():Array<String> {
 
-        val recvBuf = ByteArray(512)
+        val recvBuf = ByteArray(2048)
         val recvDp = DatagramPacket(recvBuf, recvBuf.size)
 
         ds.receive(recvDp)//上面while(true)，此处receive()为阻塞式方法，无接收等待
