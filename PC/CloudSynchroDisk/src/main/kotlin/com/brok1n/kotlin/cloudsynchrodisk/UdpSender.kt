@@ -65,31 +65,31 @@ class UdpSender {
                         val checkStr = dataSp[0]
                         val sendedMsg = sendedDataMap[checkStr.toUpperCase()]
                         if ( sendedMsg != null ) {
-                            log("收到一条心跳响应包$ip:$port: $sendedMsg")
+                            log("PC 收到一条心跳响应包$ip:$port: $sendedMsg")
                             sendedDataMap.remove(checkStr.toUpperCase())
                         } else {
-                            log("收到一条未知心跳响应包$ip:$port: $data")
+                            log("PC 收到一条未知心跳响应包$ip:$port: $data")
                         }
                     }
                     CMD_TYPE_REGISTER -> {
                         //用户ID(16字节)   数据包ID(unix时间戳9字节) CMD_TYPE(6字节)  数据长度(3字节)  数据
                         val registerData = data.substring(34)
-                        log("收到一条P2P注册包$ip:$port:$registerData")
+                        log("PC 收到一条P2P注册包$ip:$port:$registerData")
                         val registerDataSp = registerData.split("|")
                         val registerIp = registerDataSp[0]
                         val registerPort = registerDataSp[1].toInt()
 
-                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"register1"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_REGISTER,"register2"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"register3"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_REGISTER,"register4"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"register5"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"P2P DATA TEST 1 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_REGISTER,"P2P DATA TEST 2 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"P2P DATA TEST 3 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_REGISTER,"P2P DATA TEST 4 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"P2P DATA TEST  5 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
                     }
                     CMD_TYPE_DATA -> {
-                        log("收到了一条数据$ip:$port: $data")
+                        log("PC 收到了一条数据$ip:$port: $data")
                     }
                     else -> {
-                        log("收到一条未知数据$ip:$port: $data")
+                        log("PC 收到一条未知数据$ip:$port: $data")
                     }
                 }
 
@@ -135,7 +135,7 @@ class UdpSender {
     }
 
     private fun sendHeartBeat(){
-        log("发送一条心跳数据:${pendingSendDataQueue.size}")
+        log("PC 发送一条心跳数据:${pendingSendDataQueue.size}")
         sendData("heart beat", CMD_TYPE_HEARTBEAT)
     }
 
@@ -161,7 +161,7 @@ class UdpSender {
             val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(DataCenter.instance.serverIp), DataCenter.instance.serverUdpPort)
 
             //3，通过socket服务，将已有的数据包发送出去。通过send方法。
-            log("发送一条数据:$dataStr")
+            log("PC 发送一条数据:$dataStr")
             val startTime = System.currentTimeMillis()
             ds.send(dp)
             str = dataStr
@@ -194,7 +194,7 @@ class UdpSender {
         val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(machine.ip), machine.port)
 
         //3，通过socket服务，将已有的数据包发送出去。通过send方法。
-        log("发送一条UDP数据 -> ${machine.ip}:${machine.port}:$dataStr")
+        log("PC 发送一条UDP数据 -> ${machine.ip}:${machine.port}:$dataStr")
         val startTime = System.currentTimeMillis()
         ds.send(dp)
     }
@@ -210,7 +210,7 @@ class UdpSender {
         val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(machine.ip), machine.port)
 
         //3，通过socket服务，将已有的数据包发送出去。通过send方法。
-        log("发送一条UDP数据 -> ${machine.ip}:${machine.port}:$dataStr")
+        log("PC 发送一条UDP数据 -> ${machine.ip}:${machine.port}:$dataStr")
         val startTime = System.currentTimeMillis()
         tmpDs.send(dp)
 
