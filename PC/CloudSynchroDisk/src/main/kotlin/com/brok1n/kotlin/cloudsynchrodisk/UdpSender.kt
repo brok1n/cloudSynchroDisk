@@ -79,11 +79,11 @@ class UdpSender {
                         val registerIp = registerDataSp[0]
                         val registerPort = registerDataSp[1].toInt()
 
-                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"P2P DATA TEST 1 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_REGISTER,"P2P DATA TEST 2 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"P2P DATA TEST 3 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_REGISTER,"P2P DATA TEST 4 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( Message(CMD_TYPE_REGISTER,"P2P DATA TEST  5 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 1 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 2 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 3 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 4 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 5 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
                     }
                     CMD_TYPE_DATA -> {
                         log("PC 收到了一条数据$ip:$port: $data")
