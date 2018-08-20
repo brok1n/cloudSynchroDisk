@@ -31,13 +31,8 @@
       <file leaf-file-name="UdpSender.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state relative-caret-position="291">
               <caret line="191" column="101" selection-start-line="191" selection-start-column="101" selection-end-line="191" selection-end-column="101" />
-=======
-            <state relative-caret-position="43">
-              <caret line="103" column="33" lean-forward="true" selection-start-line="103" selection-start-column="33" selection-end-line="103" selection-end-column="33" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
               <folding>
                 <element signature="e#44#714#0" expanded="true" />
               </folding>
@@ -466,27 +461,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-<<<<<<< HEAD
     <option name="x" value="-1626" />
     <option name="y" value="62" />
     <option name="width" value="1684" />
     <option name="height" value="920" />
-=======
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1861" />
-    <option name="height" value="1096" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
       <pane id="Scope" />
-=======
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -555,10 +540,6 @@
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-=======
-      <pane id="Scope" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -659,27 +640,16 @@
       <workItem from="1534654712786" duration="29567000" />
       <workItem from="1534730889215" duration="2006000" />
       <workItem from="1534733536922" duration="55000" />
-<<<<<<< HEAD
       <workItem from="1534733810424" duration="1001000" />
-=======
-      <workItem from="1534734282138" duration="2076000" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
     <option name="totallyTimeSpent" value="34439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1608" y="-8" width="1616" height="916" extended-state="6" />
     <editor active="true" />
-=======
-    <option name="totallyTimeSpent" value="35514000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -690,20 +660,12 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-<<<<<<< HEAD
-=======
-      <window_info anchor="bottom" id="Run" order="2" weight="0.8768267" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.89258313" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2062982" />
-=======
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18600777" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -711,11 +673,8 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
-<<<<<<< HEAD
       <window_info anchor="bottom" id="Debug" order="3" weight="0.151357" />
       <window_info anchor="bottom" id="Messages" order="7" weight="0.7262211" />
-=======
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -1042,13 +1001,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="291">
           <caret line="191" column="101" selection-start-line="191" selection-start-column="101" selection-end-line="191" selection-end-column="101" />
-=======
-        <state relative-caret-position="43">
-          <caret line="103" column="33" lean-forward="true" selection-start-line="103" selection-start-column="33" selection-end-line="103" selection-end-column="33" />
->>>>>>> c6b5b24d225bb82a88d3c8508667154d6ef4d114
           <folding>
             <element signature="e#44#714#0" expanded="true" />
           </folding>
