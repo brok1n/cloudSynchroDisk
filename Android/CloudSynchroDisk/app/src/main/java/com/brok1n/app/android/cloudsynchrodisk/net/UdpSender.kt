@@ -121,61 +121,69 @@ class UdpSender {
         try {
             while ( running ) {
                 val recv = receiveData()
-                val ip = recv[0]
-                val port = recv[1]
-                val data = recv[2]
 
-                val userId = data.substring(0, 16)
-                val type = data.substring(25, 31)
-                val dataMsg = data.substring(34)
-
-                when(type){
-                    CMD_TYPE_HEARTBEAT_BACK -> {
-                        val dataSp = dataMsg.split("|")
-                        val checkStr = dataSp[0]
-                        val sendedMsg = sendedDataMap[checkStr.toUpperCase()]
-                        if ( sendedMsg != null ) {
-                            log("Android 收到一条心跳响应包$ip:$port: $sendedMsg")
-                            sendedDataMap.remove(checkStr.toUpperCase())
-                        } else {
-                            log("Android 收到一条未知心跳响应包$ip:$port: $data")
-                        }
-
-                        //解析出PC的通信终端信息
-                        if ( dataSp.size > 2 ) {
-                            DataCenter.instance.p2pDevice.apply {
-                                this.ip = dataSp[1]
-                                this.port = dataSp[2].toInt()
-                            }
-                            sendUdpDataToMachine( Message(CMD_TYPE_DATA, "P2P DATA TEST 1  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
-                            sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 2  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
-                            sendUdpDataToMachine( Message(CMD_TYPE_DATA, "P2P DATA TEST 3  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
-                            sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 4  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
-                            sendUdpDataToMachine( Message(CMD_TYPE_DATA, "P2P DATA TEST 5  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
-                        }
-
-                    }
-                    CMD_TYPE_REGISTER -> {
-                        //用户ID(16字节)   数据包ID(unix时间戳9字节) CMD_TYPE(6字节)  数据长度(3字节)  数据
-                        val registerData = data.substring(34)
-                        log("Android 收到一条P2P注册包$ip:$port:$registerData")
-                        val registerDataSp = registerData.split("|")
-                        val registerIp = registerDataSp[0]
-                        val registerPort = registerDataSp[1].toInt()
-
-                        sendUdpDataToMachine(Message(CMD_TYPE_REGISTER, "register"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                    }
-                    else -> {
-                        log("Android 收到一条未知数据$ip:$port: $data")
-
-                    }
+                try {
+                    handleRecv(recv)
+                }catch (e:Exception){
+                    e.printStackTrace()
                 }
-
             }
         }catch (e:Exception) {
             e.printStackTrace()
         }
         println("udp read thread exit.................")
+    }
+
+    fun handleRecv(recv: Array<String>) {
+        val ip = recv[0]
+        val port = recv[1]
+        val data = recv[2]
+
+        val userId = data.substring(0, 16)
+        val type = data.substring(25, 31)
+        val dataMsg = data.substring(34)
+
+        when (type) {
+            CMD_TYPE_HEARTBEAT_BACK -> {
+                val dataSp = dataMsg.split("|")
+                val checkStr = dataSp[0]
+                val sendedMsg = sendedDataMap[checkStr.toUpperCase()]
+                if (sendedMsg != null) {
+                    log("Android 收到一条心跳响应包$ip:$port: $sendedMsg")
+                    sendedDataMap.remove(checkStr.toUpperCase())
+                } else {
+                    log("Android 收到一条未知心跳响应包$ip:$port: $data")
+                }
+
+                //解析出PC的通信终端信息
+                if (dataSp.size > 2) {
+                    DataCenter.instance.p2pDevice.apply {
+                        this.ip = dataSp[1]
+                        this.port = dataSp[2].toInt()
+                    }
+                    sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 1  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
+                    sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 2  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
+                    sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 3  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
+                    sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 4  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
+                    sendUdpDataToMachine(ds, Message(CMD_TYPE_DATA, "P2P DATA TEST 5  I am an Android device I want go to PC"), DataCenter.instance.p2pDevice)
+                }
+
+            }
+            CMD_TYPE_REGISTER -> {
+                //用户ID(16字节)   数据包ID(unix时间戳9字节) CMD_TYPE(6字节)  数据长度(3字节)  数据
+                val registerData = data.substring(34)
+                log("Android 收到一条P2P注册包$ip:$port:$registerData")
+                val registerDataSp = registerData.split("|")
+                val registerIp = registerDataSp[0]
+                val registerPort = registerDataSp[1].toInt()
+
+                sendUdpDataToMachine(Message(CMD_TYPE_REGISTER, "register"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
+            }
+            else -> {
+                log("Android 收到一条未知数据$ip:$port: $data")
+
+            }
+        }
     }
 
 
