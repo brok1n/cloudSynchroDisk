@@ -22,41 +22,29 @@
       <file leaf-file-name="Main.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="273">
+              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UdpSender.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UdpSender.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="73" column="61" lean-forward="true" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
+            <state relative-caret-position="122">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
               <folding>
-                <element signature="e#44#559#0" expanded="true" />
+                <element signature="e#44#254#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constant.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Constant.kt">
+      <file leaf-file-name="MessageHandler.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/MessageHandler.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="e#44#207#0" expanded="true" />
-              </folding>
+              <caret line="67" column="38" lean-forward="true" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -64,26 +52,26 @@
       <file leaf-file-name="DataCenter.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/DataCenter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            <state relative-caret-position="255">
+              <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Machine.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Machine.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" selection-start-line="2" selection-end-line="8" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+      <file leaf-file-name="PendingSendMessage.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
+              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerMessage.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/ServerMessage.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -105,6 +93,7 @@
       <find>heartBeat</find>
       <find>已发送未接收到响应</find>
       <find>&quot;heartBeat</find>
+      <find>PC 发送一条数据</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -296,7 +285,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$USER_HOME$/.gradle/gradle.properties" value="4056610230" />
-        <entry key="$PROJECT_DIR$" value="6138949818778" />
+        <entry key="$PROJECT_DIR$" value="7658818957092" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/build.gradle" value="3350204299" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="1741342742" />
@@ -449,9 +438,12 @@
         <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Constant.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Machine.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Main.kt" />
-        <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/DataCenter.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/MessageHandler.kt" />
         <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt" />
+        <option value="$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/ServerMessage.kt" />
       </list>
     </option>
   </component>
@@ -464,17 +456,14 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1861" />
-    <option name="height" value="1096" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -542,6 +531,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -644,38 +636,41 @@
       <workItem from="1534733810424" duration="1001000" />
       <workItem from="1534737479965" duration="1113000" />
       <workItem from="1534748229737" duration="2112000" />
+      <workItem from="1534817342812" duration="9268000" />
+      <workItem from="1534840457176" duration="5416000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37664000" />
+    <option name="totallyTimeSpent" value="52348000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1861" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.7254697" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.29102167" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.0371517" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.94363254" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21099389" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21746032" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Gradle" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.21981424" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.151357" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.8393316" />
@@ -693,25 +688,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/DataCenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Machine.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
@@ -729,9 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3401">
           <caret line="191" column="101" selection-start-line="191" selection-start-column="101" selection-end-line="191" selection-end-column="101" />
-          <folding>
-            <element signature="e#44#559#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,7 +737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
@@ -811,7 +789,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
@@ -822,9 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3800">
           <caret line="212" column="16" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
-          <folding>
-            <element signature="e#44#559#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,7 +841,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
@@ -877,9 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4028">
           <caret line="212" column="16" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
-          <folding>
-            <element signature="e#44#559#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -921,7 +893,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
@@ -932,9 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4028">
           <caret line="212" column="16" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
-          <folding>
-            <element signature="e#44#559#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -976,7 +945,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
@@ -987,9 +956,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
           <caret line="84" column="50" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
-          <folding>
-            <element signature="e#44#559#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,27 +1004,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Machine.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Constant.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="102">
+          <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="e#44#207#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Machine.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Message.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -1071,25 +1030,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/DataCenter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        <state relative-caret-position="255">
+          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="273">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/UdpSender.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="73" column="61" lean-forward="true" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
+        <state relative-caret-position="122">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
           <folding>
-            <element signature="e#44#559#0" expanded="true" />
+            <element signature="e#44#254#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/ServerMessage.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/PendingSendMessage.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/com/brok1n/kotlin/cloudsynchrodisk/MessageHandler.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="67" column="38" lean-forward="true" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
         </state>
       </provider>
     </entry>

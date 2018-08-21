@@ -38,13 +38,13 @@ object SendStatus {
 
 fun log( msg: String? ){
     msg?.let {
-        println("${Constant.PROJECT_NAME}:${Date().dateTimeString()}:info:$it")
+        println("${Constant.PROJECT_NAME}:${Date().dateTimeMillisecondString()}:info:$it")
     }
 }
 
 fun loge( msg: String? ){
     msg?.let {
-        println("${Constant.PROJECT_NAME}:${Date().dateTimeString()}:error:$it")
+        println("${Constant.PROJECT_NAME}:${Date().dateTimeMillisecondString()}:error:$it")
     }
 }
 
@@ -67,6 +67,13 @@ fun Date.dateString():String{
  */
 fun Date.dateTimeString():String{
     return SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(this)
+}
+
+/**
+ * 日期转化为字符串
+ */
+fun Date.dateTimeMillisecondString():String{
+    return SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS").format(this)
 }
 
 fun String.md532(): String {

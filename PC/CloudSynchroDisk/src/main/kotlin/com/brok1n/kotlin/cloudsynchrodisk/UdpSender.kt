@@ -1,15 +1,10 @@
 package com.brok1n.kotlin.cloudsynchrodisk
 
-import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_DATA
 import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_HEARTBEAT
-import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_HEARTBEAT_BACK
-import com.brok1n.kotlin.cloudsynchrodisk.CMD_TYPE.CMD_TYPE_REGISTER
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress
 import java.util.*
-import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.ConcurrentLinkedQueue
 import kotlin.concurrent.thread
 
 class UdpSender {
@@ -17,10 +12,9 @@ class UdpSender {
     var heartBeatTimer = Timer()
 
     //1，创建udp服务。通过DatagramSocket对象。
-    var ds = DatagramSocket(DataCenter.instance.serverUdpLocalPort)
+    lateinit var ds:DatagramSocket
 
-    val pendingSendDataQueue = ConcurrentLinkedQueue<Message>()
-    val sendedDataMap = ConcurrentHashMap<String, String>()
+    val messageHandler = MessageHandler()
 
     var running = false
 
@@ -28,69 +22,31 @@ class UdpSender {
 
         running = true
 
+        ds = DatagramSocket(DataCenter.instance.serverUdpLocalPort)
+
         startUdpServer()
-
         startSendHeartBeat()
-
     }
 
     private fun startUdpServer() {
-
         thread {
             udpSendThread()
         }
-
         thread {
             udpReadThread()
         }
     }
 
     private fun udpReadThread() {
+
+        val recvBuf = ByteArray(2048)
+        val recvDp = DatagramPacket(recvBuf, recvBuf.size)
         try {
             while ( running ) {
-                val recv = receiveData()
-                val ip = recv[0]
-                val port = recv[1]
-                val data = recv[2]
 
-                val userId = data.substring(0, 16)
-                val type = data.substring(25, 31)
-                val dataMsg = data.substring(34)
-
-                when(type){
-                    CMD_TYPE_HEARTBEAT_BACK -> {
-                        val dataSp = dataMsg.split("|")
-                        val checkStr = dataSp[0]
-                        val sendedMsg = sendedDataMap[checkStr.toUpperCase()]
-                        if ( sendedMsg != null ) {
-                            log("PC 收到一条心跳响应包$ip:$port: $sendedMsg")
-                            sendedDataMap.remove(checkStr.toUpperCase())
-                        } else {
-                            log("PC 收到一条未知心跳响应包$ip:$port: $data")
-                        }
-                    }
-                    CMD_TYPE_REGISTER -> {
-                        //用户ID(16字节)   数据包ID(unix时间戳9字节) CMD_TYPE(6字节)  数据长度(3字节)  数据
-                        val registerData = data.substring(34)
-                        log("PC 收到一条P2P注册包$ip:$port:$registerData")
-                        val registerDataSp = registerData.split("|")
-                        val registerIp = registerDataSp[0]
-                        val registerPort = registerDataSp[1].toInt()
-
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 1 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 2 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 3 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 4 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                        sendUdpDataToMachine( ds, Message(CMD_TYPE_DATA,"P2P DATA TEST 5 I am an PC I want go to Android"), Machine(registerIp, registerPort, "", System.currentTimeMillis()))
-                    }
-                    CMD_TYPE_DATA -> {
-                        log("PC 收到了一条数据$ip:$port: $data")
-                    }
-                    else -> {
-                        log("PC 收到一条未知数据$ip:$port: $data")
-                    }
-                }
-
+                Arrays.fill(recvBuf, 0.toByte())
+                ds.receive(recvDp)//上面while(true)，此处receive()为阻塞式方法，无接收等待
+                messageHandler.hanleMessage(ServerMessage(recvDp.address.hostAddress, recvDp.port, String(recvDp.data, 0, recvDp.length), System.currentTimeMillis()))
             }
         }catch (e:Exception) {
             e.printStackTrace()
@@ -102,15 +58,15 @@ class UdpSender {
     private fun udpSendThread() {
         try {
             while ( running ) {
-                if ( pendingSendDataQueue.isEmpty() ) {
+                if ( DataCenter.instance.pendingSendDataQueue.isEmpty() ) {
                     Thread.sleep(10)
                     continue
                 }
-                val msg = pendingSendDataQueue.peek()
+                val msg = DataCenter.instance.pendingSendDataQueue.peek()
                 val sendStr = sendUdpData(msg)
                 if ( sendStr.length > 1 ) {
-                    sendedDataMap[sendStr.md516().toUpperCase()] = sendStr
-                    pendingSendDataQueue.remove(msg)
+                    DataCenter.instance.sendedDataMap[sendStr.md516().toUpperCase()] = sendStr
+                    DataCenter.instance.pendingSendDataQueue.remove(msg)
                 }
             }
         }catch (e:Exception) {
@@ -124,95 +80,40 @@ class UdpSender {
     }
 
     private fun startSendHeartBeat() {
-
         heartBeatTimer.schedule(object : TimerTask(){
             override fun run() {
-                sendHeartBeat()
+                log("PC 发送一条心跳数据:${DataCenter.instance.pendingSendDataQueue.size}")
+                sendData(PendingSendMessage(CMD_TYPE_HEARTBEAT, "heart beat"))
             }
         }, 0, DataCenter.instance.heartBeatPeriodic)
     }
 
-    private fun sendHeartBeat(){
-        log("PC 发送一条心跳数据:${pendingSendDataQueue.size}")
-        sendData("heart beat", CMD_TYPE_HEARTBEAT)
+    fun sendData( msg: PendingSendMessage) {
+        DataCenter.instance.pendingSendDataQueue.add(msg)
     }
 
-    private fun sendData( msg: String, type:String ) {
-        pendingSendDataQueue.add(Message(type, msg))
-    }
-
-    private fun sendUdpData( msg: Message ): String {
+    private fun sendUdpData( msg: PendingSendMessage ): String {
         var str = ""
         try {
             if ( ds.isClosed ) {
                 loge("ds 被关闭 重新创建")
                 ds = DatagramSocket(DataCenter.instance.serverUdpLocalPort)
             }
-            //2，确定数据，并封装成数据包。DatagramPacket(byte[] buf, int length, InetAddress address, int port)
-            //数据封包
             //用户ID(16字节)   数据包ID(unix时间戳9字节) CMD_TYPE(6字节)  数据长度(3字节)  数据
             val msgLen = msg.data.length
             var dataLen = if ( msgLen < 10 ) "00$msgLen" else if ( msgLen < 100 ) "0$msgLen" else "$msgLen"
-//            val dataStr = "${DataCenter.instance.userId}|${System.currentTimeMillis().toString().substring(4)}|$dataLen|$msg"
-            val dataStr = "${DataCenter.instance.userId}${System.currentTimeMillis().toString().substring(4)}${msg.type}$dataLen$msg"
+            val dataStr = "${DataCenter.instance.userId}${System.currentTimeMillis().toString().substring(4)}${msg.type}$dataLen${msg.data}"
             val dataByteArray = dataStr.toByteArray()
-            val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(DataCenter.instance.serverIp), DataCenter.instance.serverUdpPort)
-
-            //3，通过socket服务，将已有的数据包发送出去。通过send方法。
-            log("PC 发送一条数据:$dataStr")
-            val startTime = System.currentTimeMillis()
+            val targetIp = if (msg.targetIp.length > 5) msg.targetIp else DataCenter.instance.serverIp
+            val targetPort = if ( msg.targetPort > 1000 ) msg.targetPort else DataCenter.instance.serverUdpPort
+            val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(targetIp), targetPort)
+            log("PC 发送一条数据  -> ${targetIp}:${targetPort}:$dataStr")
             ds.send(dp)
             str = dataStr
         }catch (e:Exception){
             loge(e.message)
         }
         return str
-    }
-
-    private fun receiveData():Array<String> {
-
-        val recvBuf = ByteArray(2048)
-        val recvDp = DatagramPacket(recvBuf, recvBuf.size)
-
-        ds.receive(recvDp)//上面while(true)，此处receive()为阻塞式方法，无接收等待
-        val ip = recvDp.address.hostAddress
-        val port = recvDp.port
-        val data = String(recvDp.data, 0, recvDp.length)
-
-        return arrayOf(ip, port.toString(), data )
-    }
-
-    fun sendUdpDataToMachine( ds: DatagramSocket, msg:Message, machine: Machine ){
-
-        val msgLen = msg.data.length
-        var dataLen = if ( msgLen < 10 ) "00$msgLen" else if ( msgLen < 100 ) "0$msgLen" else "$msgLen"
-//            val dataStr = "${DataCenter.instance.userId}|${System.currentTimeMillis().toString().substring(4)}|$dataLen|$msg"
-        val dataStr = "${DataCenter.instance.userId}${System.currentTimeMillis().toString().substring(4)}${msg.type}$dataLen$msg"
-        val dataByteArray = dataStr.toByteArray()
-        val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(machine.ip), machine.port)
-
-        //3，通过socket服务，将已有的数据包发送出去。通过send方法。
-        log("PC 发送一条UDP数据 -> ${machine.ip}:${machine.port}:$dataStr")
-        val startTime = System.currentTimeMillis()
-        ds.send(dp)
-    }
-
-    fun sendUdpDataToMachine( msg:Message, machine: Machine ){
-        val tmpDs = DatagramSocket()
-
-        val msgLen = msg.data.length
-        var dataLen = if ( msgLen < 10 ) "00$msgLen" else if ( msgLen < 100 ) "0$msgLen" else "$msgLen"
-//            val dataStr = "${DataCenter.instance.userId}|${System.currentTimeMillis().toString().substring(4)}|$dataLen|$msg"
-        val dataStr = "${DataCenter.instance.userId}${System.currentTimeMillis().toString().substring(4)}${msg.type}$dataLen$msg"
-        val dataByteArray = dataStr.toByteArray()
-        val dp = DatagramPacket(dataByteArray, dataByteArray.size, InetAddress.getByName(machine.ip), machine.port)
-
-        //3，通过socket服务，将已有的数据包发送出去。通过send方法。
-        log("PC 发送一条UDP数据 -> ${machine.ip}:${machine.port}:$dataStr")
-        val startTime = System.currentTimeMillis()
-        tmpDs.send(dp)
-
-        tmpDs.close()
     }
 
     companion object {
